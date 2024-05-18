@@ -25,21 +25,12 @@ const Login = () => {
         "https://expense-tracker-blond-ten.vercel.app/api/sign/loginUser",
         formData
       );
-      // if (response.status === 200) {
-        alert(response.data.message); // Alert success message
+        alert(response.data.message); 
         navigate("/");
         dispatch(user(response.data));
         dispatch(isAuth(true));
         dispatch(updateUserPremiumStatus(response.data.isPremium));
-      // } else {
-      //   alert("Login failed. Please try again."); // Alert general failure message
-      // }
     } catch (error) {
-      // if (error.response && error.response.status === 401) {
-      //   alert("User not found or Please check your Password."); // Alert specific error message from backend
-      // } else {
-      //   alert("An error occurred. Please try again later."); // Alert for other errors
-      // }
       console.error(error);
     }
   };
